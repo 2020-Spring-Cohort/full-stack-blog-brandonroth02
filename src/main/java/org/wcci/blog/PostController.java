@@ -21,6 +21,45 @@ public class PostController {
         this.tagRepository = tagRepository;
     }
 
+    @RequestMapping("/posts")
+    public String displayPosts(Model model){
+        model.addAttribute( "posts", postStorage.findAllPosts());
+        return "ListOfPosts";
+    }
+
+    @RequestMapping("/post/{postId}")
+    public String displaySinglePost(@PathVariable Long postId, Model model){
+        Post retrievedPost = postStorage.findByPostId(postId);
+        model.addAttribute( "post", retrievedPost);
+        return "post";
+    }
+
+    @PostMapping("/add-post")
+    public String addPost(@RequestParam String postAuthor, @RequestParam String postText, @RequestParam String CategoryName, @RequestParam String postName){
+      Category postCategory = categoryStorage.findCategoryByName(categoryName);
+      postStorage.storePost(new Post(postAuthor, postText, postCategory, postName));
+      return "redirect:categories";
+    }
+
+    @PostMapping("/post/{id}/add-tag")
+    public String addTagToPost(@RequestParam String name, @PathVariable Long id){
+
+        Tag tagToAddToPost;
+        Optional<Tag> tagOptional = tagRepository.findByName(name);
+
+        if(tagOptional.isEmpty()) {
+            tagToAddToReview = new Tag(name);
+            tagRepository.save(tagToAddToPost);
+        }else {
+            tagToAddToPost = tagOptional.get();
+        }
+
+        Post postToAddTagTo = postStorage.findPostById(id);
+        postToAddTagTo.addTag(tagToAddToPost);
+        postStorage.storePost(postToAddTagTo);
+        return "redirect:/post/" + id;
+    }
+
 
 
 
