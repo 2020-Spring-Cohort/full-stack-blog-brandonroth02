@@ -18,6 +18,11 @@ public class CategoryStorageJpaImpl implements CategoryStorage {
     }
 
     @Override
+    public void StoreCategory(Category category) {
+
+    }
+
+    @Override
     public void storeCategory(Category category){
         categoryRepository.save(category);
     }

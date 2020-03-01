@@ -36,50 +36,38 @@ public class PostController {
 
     @PostMapping("/add-post")
     public String addPost(@RequestParam String postAuthor, @RequestParam String postText, @RequestParam String CategoryName, @RequestParam String postName){
-      Category postCategory = categoryStorage.findCategoryByName(categoryName);
-      postStorage.storePost(new Post(postAuthor, postText, postCategory, postName));
+        String categoryName;
+        Category postCategory = categoryStorage.findCategoryByName(categoryName);
+      postStorage.storePost(new Post(getName(postAuthor), getName(postText), postCategory, getName(postName)));
       return "redirect:categories";
     }
 
     @PostMapping("/post/{id}/add-tag")
     public String addTagToPost(@RequestParam String name, @PathVariable Long id){
 
-        Tag tagToAddToPost;
-        Optional<Tag> tagOptional = tagRepository.findByName(name);
+        Tag tagToAddToPost = new Tag();
+        Optional<Tag> tagOptional = tagRepository.findByName(getName(name));
 
         if(tagOptional.isEmpty()) {
-            tagToAddToReview = new Tag(name);
-            tagRepository.save(tagToAddToPost);
+            tagToAddToReview = new Tag(getName(name));
+            tagRepository.save(getTagToAddToPost(tagToAddToPost));
         }else {
             tagToAddToPost = tagOptional.get();
         }
 
         Post postToAddTagTo = postStorage.findPostById(id);
-        postToAddTagTo.addTag(tagToAddToPost);
+        postToAddTagTo.addTag(getTagToAddToPost(tagToAddToPost));
         postStorage.storePost(postToAddTagTo);
         return "redirect:/post/" + id;
     }
 
+    private String getName(@RequestParam String name) {
+        return name;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private Tag getTagToAddToPost(Tag tagToAddToPost) {
+        return tagToAddToPost;
+    }
 
 
 }

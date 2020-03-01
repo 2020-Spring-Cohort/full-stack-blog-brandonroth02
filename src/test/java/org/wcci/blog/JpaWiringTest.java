@@ -17,6 +17,9 @@ public class JpaWiringTest {
     @Test
     public void categoryShouldHaveListOfPosts(){
         Category testCategory = new Category("Test Category","Things");
-        Post testPost = new Post("Test Author", "post text", "Hello Planet");
+
+
+        categoryRepository.save(testCategory);
+
     }
 }

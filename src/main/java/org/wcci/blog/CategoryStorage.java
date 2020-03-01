@@ -7,5 +7,7 @@ public interface CategoryStorage {
 
     void StoreCategory(Category category);
 
+    void storeCategory(Category category);
+
     Category findCategoryByName(String categoryToFind);
 }
