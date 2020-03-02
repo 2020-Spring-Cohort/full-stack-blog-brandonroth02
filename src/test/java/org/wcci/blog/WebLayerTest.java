@@ -16,8 +16,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest
 public class WebLayerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
     @MockBean
     CategoryStorage categoryStorage;
     @MockBean
@@ -26,6 +24,8 @@ public class WebLayerTest {
     TagStorage tagStorage;
     @MockBean
     PostController postController;
+    @Autowired
+    private MockMvc mockMvc;
 
     @Test
     public void categoriesShouldBeOkAndReturnTheViewWithModelAttribute() throws Exception {
