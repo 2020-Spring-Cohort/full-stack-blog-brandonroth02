@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SmokeTest {
 
     @Test
-    void contextLoads(){
+    void contextLoads() {
 
     }
 }

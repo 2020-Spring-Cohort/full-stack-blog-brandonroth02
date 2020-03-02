@@ -33,39 +33,41 @@ public class CategoryControllerTest {
     }
 
     @Test
-    public void shouldReturnViewWithOneCategory(){
-        Category testCategory = new Category( "Monster", "Scary");
-        when(mockStorage.findCategoryByName( "Sasquatch")).thenReturn(testCategory);
+    public void shouldReturnViewWithOneCategory() {
+        Category testCategory = new Category("Monster", "Scary");
+        when(mockStorage.findCategoryByName("Sasquatch")).thenReturn(testCategory);
 
-        underTest.displaySingleCategory( "Sasquatch", mockModel);
+        underTest.displaySingleCategory("Sasquatch", mockModel);
 
-        verify(mockStorage).findCategoryByName( "Sasquatch");
+        verify(mockStorage).findCategoryByName("Sasquatch");
         verify(mockModel).addAttribute("category", testCategory);
     }
 
     @Test
     public void shouldReturnViewNamedCategoryViewWhenDisplaySingleCategory() {
-        String viewName = underTest.displaySingleCategory( "Sasquatch", mockModel);
+        String viewName = underTest.displaySingleCategory("Sasquatch", mockModel);
         assertThat(viewName).isEqualTo("category");
     }
+
     @Test
     public void shouldGoToSpecificCategories() throws Exception {
-        Category testCategory = new Category( "Monster", "Evil");
-        when(mockStorage.findCategoryByName( "Sasquatch")).thenReturn(testCategory);
+        Category testCategory = new Category("Monster", "Evil");
+        when(mockStorage.findCategoryByName("Sasquatch")).thenReturn(testCategory);
         mockMvc.perform(get("/categories/Sasquatch"))
                 .andExpect(status().isOk());
     }
+
     @Test
     public void listControllerShouldInstantiate() throws Exception {
-        Category testCategory = new Category( "Demon", "From Hell");
+        Category testCategory = new Category("Demon", "From Hell");
 
         List<Category> categoryCollection = Collections.singletonList((testCategory));
         when(mockStorage.findAllCategories()).thenReturn(categoryCollection);
-        mockMvc.perform(get( "/categories"))
+        mockMvc.perform(get("/categories"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name( "ListOfCategories"))
-                .andExpect(model().attribute( "categories", categoryCollection));
+                .andExpect(view().name("ListOfCategories"))
+                .andExpect(model().attribute("categories", categoryCollection));
 
     }
 }

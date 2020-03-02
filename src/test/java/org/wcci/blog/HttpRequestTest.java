@@ -21,9 +21,9 @@ public class HttpRequestTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    public void categoriesEndPointReturnsOk(){
+    public void categoriesEndPointReturnsOk() {
         ResponseEntity<String> response = testRestTemplate.getForEntity(
                 "http://localhost:" + port + "/categories", String.class);
-            assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }

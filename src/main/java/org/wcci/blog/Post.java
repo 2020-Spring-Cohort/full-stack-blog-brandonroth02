@@ -21,30 +21,46 @@ public class Post {
     }
 
     public Post(String postAuthor, String postText, Category postCategory, String postName) {
-       this.postAuthor = postAuthor;
-       this.postDate = new Date();
-       this.postText = postText;
-       this.postCategory = postCategory;
-       this.postName = postName;
-       this.tags = new HashSet<>();
+        this.postAuthor = postAuthor;
+        this.postDate = new Date();
+        this.postText = postText;
+        this.postCategory = postCategory;
+        this.postName = postName;
+        this.tags = new HashSet<>();
 
     }
 
-    public Collection<Tag> getTags() {return tags; }
+    public Collection<Tag> getTags() {
+        return tags;
+    }
 
-    public String getPostName() { return postName;}
+    public String getPostName() {
+        return postName;
+    }
 
-    public String getPostAuthor() {return postAuthor;}
+    public String getPostAuthor() {
+        return postAuthor;
+    }
 
-    public Date getPostDate() {return postDate;}
+    public Date getPostDate() {
+        return postDate;
+    }
 
-    public String getPostText() {return postText;}
+    public String getPostText() {
+        return postText;
+    }
 
-    public Category getPostCategory() {return postCategory;}
+    public Category getPostCategory() {
+        return postCategory;
+    }
 
-    public Long getId() {return id;}
+    public Long getId() {
+        return id;
+    }
 
-    public void addTag(Tag tagToAdd) {tags.add(tagToAdd);}
+    public void addTag(Tag tagToAdd) {
+        tags.add(tagToAdd);
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -61,40 +77,8 @@ public class Post {
 
     @Override
     public int hashCode() {
-        return  Objects.hash(postAuthor, postDate, postText, postCategory, postName, id, tags);
+        return Objects.hash(postAuthor, postDate, postText, postCategory, postName, id, tags);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -15,7 +15,9 @@ public class Category {
     private String categoryName;
     private String categoryDescription;
 
-    public Collection<Post> getPosts() {return posts;}
+    public Collection<Post> getPosts() {
+        return posts;
+    }
 
     @OneToMany(mappedBy = "postCategory")
     private Collection<Post> posts;
@@ -25,14 +27,23 @@ public class Category {
         this.categoryDescription = categoryDescription;
     }
 
-    public Category(){
+    public Category() {
     }
-    public String getCategoryName() { return categoryName;}
 
-    public String getCategoryDescription() { return categoryDescription;}
+    public String getCategoryName() {
+        return categoryName;
+    }
 
-    public Long getId() { return id;}
+    public String getCategoryDescription() {
+        return categoryDescription;
+    }
+
+    public Long getId() {
+        return id;
+    }
 
     @Override
-    public int hashCode() { return Objects.hash(id, categoryName, categoryDescription);}
+    public int hashCode() {
+        return Objects.hash(id, categoryName, categoryDescription);
+    }
 }
