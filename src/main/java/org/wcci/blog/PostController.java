@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("post")
 public class PostController {
 
     private PostStorage postStorage;
