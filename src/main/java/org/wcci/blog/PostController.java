@@ -37,7 +37,6 @@ public class PostController {
 
     @PostMapping("/add-post")
     public String addPost(@RequestParam String postAuthor, @RequestParam String postText, @RequestParam String CategoryName, @RequestParam String postName){
-        String categoryName;
         Category postCategory = categoryStorage.findCategoryByName(categoryName);
       postStorage.storePost(new Post(getName(postAuthor), getName(postText), postCategory, getName(postName)));
       return "redirect:categories";
@@ -50,7 +49,7 @@ public class PostController {
         Optional<Tag> tagOptional = tagRepository.findByName(getName(name));
 
         if(tagOptional.isEmpty()) {
-            tagToAddToReview = new Tag(getName(name));
+            tagToAddToPost = new Tag(getName(name));
             tagRepository.save(getTagToAddToPost(tagToAddToPost));
         }else {
             tagToAddToPost = tagOptional.get();
