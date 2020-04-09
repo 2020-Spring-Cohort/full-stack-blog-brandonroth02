@@ -1,9 +1,13 @@
 package org.wcci.blog;
 
+import java.util.Collection;
+
 public interface PostStorage {
-    void storePost(Post postToAddTagTo);
+    Collection<Post> findAllPosts();
 
-    Post findByPostId(Long postId);
+    void storePost(Post post);
 
-    Object findAllPosts();
+    Post findByPostId(Long postToFind);
+
+
 }
