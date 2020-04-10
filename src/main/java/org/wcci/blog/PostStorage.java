@@ -5,9 +5,10 @@ import java.util.Collection;
 public interface PostStorage {
     Collection<Post> findAllPosts();
 
-    void storePost(Post post);
+    Post storePost(Post post);
 
     Post findByPostId(Long postToFind);
 
 
+    Post findPostById(Long id);
 }

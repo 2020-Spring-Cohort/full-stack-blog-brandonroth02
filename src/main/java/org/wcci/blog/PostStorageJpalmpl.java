@@ -20,18 +20,18 @@ public class PostStorageJpalmpl implements PostStorage {
     }
 
     @Override
-    public Collection<Post> storePost(Post post){
-        return (Collection<Post>) postRepository.findAll();
+    public Post storePost(Post post){
+       return postRepository.save(post);
     }
 
     @Override
-    public Post findByPostId(Long postId) {
+    public Post findByPostId(Long postToFind) {
         return null;
     }
 
     @Override
-    public Post findPostById(Long postToFind){
-        return postRepository.findById(postToFind).get();
+    public Post findPostById(Long id) {
+        return null;
     }
 
 

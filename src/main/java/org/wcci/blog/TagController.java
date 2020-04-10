@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Collection;
+import static org.wcci.blog.TagStorage.findTagByName;
 
 @Controller
 public class TagController {
@@ -32,7 +32,7 @@ public class TagController {
 
     @RequestMapping("/tag/{tagName")
     public String displaySingleTag(@PathVariable String tagName, Model model) {
-      Tag retrievedTag = TagStorage.findTagByName(tagName);
+      Tag retrievedTag = findTagByName(tagName);
         model.addAttribute( "tag", retrievedTag);
         return "tag";
 

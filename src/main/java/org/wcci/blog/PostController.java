@@ -39,7 +39,7 @@ public class PostController {
 
     @PostMapping("/add-post")
     public String addPost(@RequestParam String postAuthor, @RequestParam String postText, @RequestParam String CategoryName, @RequestParam String postName) {
-        String categoryName;
+        String categoryName = null;
         Category postCategory = categoryStorage.findCategoryByName(categoryName);
         postStorage.storePost(new Post(getName(postAuthor), getName(postText), postCategory, getName(postName)));
         return "redirect:categories";
