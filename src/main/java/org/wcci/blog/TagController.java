@@ -13,9 +13,7 @@ public class TagController {
     private CategoryStorage categoryStorage;
     private PostStorage postStorage;
 
-    public TagController(PostStorage postStorage, CategoryStorage categoryStorage) {
 
-    }
 
     public TagController(TagStorage tagStorage, PostStorage postStorage, CategoryStorage categoryStorage){
         this.tagStorage = tagStorage;
@@ -29,7 +27,7 @@ public class TagController {
         return "ListOfTags";
     }
 
-    @RequestMapping("/tag/{tagName")
+    @RequestMapping("/tag/{tagName}")
     public String displaySingleTag(@PathVariable String tagName, Model model) {
       Tag retrievedTag = tagStorage.FindTagByName(tagName);
         model.addAttribute( "tag", retrievedTag);
