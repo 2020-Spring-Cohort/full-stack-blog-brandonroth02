@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: #efefef;
+    color: black;
 }
 
 header {
@@ -56,10 +57,11 @@ nav li {
 
 footer {
     color: white;
+    margin-top: 102px;
     margin-left: auto;
     margin-right: auto;
     font-size: 16px;
-    min-height: 50px;
+    min-height: 20px;
     padding: 20px;
     background-color: black;
 }
@@ -68,4 +70,15 @@ footer {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
+}
+
+h2 {
+    font-weight: 200;
+    font-size: 25px;
+    font-family: sans-serif;
+
+}
+    
+a {
+    color: white;
 }
