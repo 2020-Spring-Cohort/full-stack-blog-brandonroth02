@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="./css/styles.css" th:href="@{/css/style.css}" type="text/css"/>
     <meta charset="UTF-8">
@@ -27,6 +27,15 @@
     <li><a href="/tags/tag3">Blog Tag 3</a></li>
     <li><a href="/tags/tag4">Blog Tag 4</a></li>
     <li><a href="/tags/tag5">Blog Tag 5</a></li>
+
+    <section class="content">
+        <div class="blog__tags">
+            <li th:each="tag:${hashtags}"><a th:href="@{'/tag/' + ${tag.name}}"
+                                                th:text="'#'+${tag.name}">Tag</a>
+
+            </li>
+        </div>
+    </section>
     
 <footer>
     <div id="footer">
