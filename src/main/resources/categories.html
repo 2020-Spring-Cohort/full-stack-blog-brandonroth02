@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="./css/styles.css" th:href="@{/css/style.css}" type="text/css"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${categories.categoriesName}">Categories</title>
 </head>
 <header>
     <div id="topbar">
@@ -21,13 +21,29 @@
 </header>
 <body>
 
+<h2 th:text="${categories.categoriesName}">Category Name</h2>
+
 <section class="categorylinks">
     <li><a href="/categories/BlogTopic1">Blog Topic 1</a></li>
     <li><a href="/categories/BlogTopic2">Blog Topic 2</a></li>
     <li><a href="/categories/BlogTopic3">Blog Topic 3</a></li>
     <li><a href="/categories/BlogTopic4">Blog Topic 4</a></li>
     <li><a href="/categories/BlogTopic5">Blog Topic 5</a></li>
-    
+    </section>
+
+    <section class="content">
+        <div class="blog__tags">
+        <ul >
+            <li class="post_list_link" th:each="post:${category.getPosts()}">
+                <a class="post-list-links__link" th:href="@{'/post/'+ ${post.id}}"
+                   th:text="${post.postName}"></a>
+            </li>
+        </ul>
+        </div>
+
+
+    </section>
+
 <footer>
     <div id="footer">
         Footer

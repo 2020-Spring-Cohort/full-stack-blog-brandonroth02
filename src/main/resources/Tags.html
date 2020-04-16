@@ -27,6 +27,15 @@
     <li><a href="/tags/tag3">Blog Tag 3</a></li>
     <li><a href="/tags/tag4">Blog Tag 4</a></li>
     <li><a href="/tags/tag5">Blog Tag 5</a></li>
+
+
+<section class="content">
+    <div class="blog__tags">
+    <li class="post_list_link" th:each="post:${tag.getPosts()}">
+        <a class="post-list-links__link" th:href="@{'/post/'+ ${post.id}}"
+           th:text="${post.PostName}"></a>
+    </div>
+</section>
     
 <footer>
     <div id="footer">
