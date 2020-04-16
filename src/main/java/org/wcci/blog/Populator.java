@@ -20,23 +20,23 @@ public class Populator implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Populator is populating...?");
 
-        Category russet = new Category("Cat1", "This is the first category");
-        categoryStorage.storeCategory(russet);
+        Category cat1 = new Category("Cat1", "This is the first category");
+        categoryStorage.storeCategory(cat1);
 
-        Category white = new Category("Cat2", "This is the second category");
-        categoryStorage.storeCategory(white);
+        Category cat2 = new Category("Cat2", "This is the second category");
+        categoryStorage.storeCategory(cat2);
 
-        Category red = new Category("Cat3", "This is the third category");
-        categoryStorage.storeCategory(red);
+        Category cat3 = new Category("Cat3", "This is the third category");
+        categoryStorage.storeCategory(cat3);
 
-        Category blue  = new Category("Cat4", "This is the fourth category");
-        categoryStorage.storeCategory(blue);
+        Category cat4  = new Category("Cat4", "This is the fourth category");
+        categoryStorage.storeCategory(cat4);
 
-        Category yellow  =  new Category("Cat5", "This is the fifth category");
-        categoryStorage.storeCategory(yellow);
+        Category cat5  =  new Category("Cat5", "This is the fifth category");
+        categoryStorage.storeCategory(cat5);
 
-        Category fingerling = new Category("Cat6", "This is the sixth category");
-        categoryStorage.storeCategory(fingerling);
+        Category cat6 = new Category("Cat6", "This is the sixth category");
+        categoryStorage.storeCategory(cat6);
 
         Post firstPost = new Post();
         postStorage.storePost(firstPost);
@@ -61,39 +61,39 @@ public class Populator implements CommandLineRunner {
         postStorage.storePost(seventhPost);
 
 
-        Tag goodTag = new Tag("good");
-        tagStorage.storeTag(goodTag);
-        firstPost.addTag(goodTag);
+        Tag Tag1 = new Tag("tag1");
+        tagStorage.storeTag(Tag1);
+        firstPost.addTag(Tag1);
         postStorage.storePost(firstPost);
 
-        Tag soGoodTag = new Tag("SoGood");
-        tagStorage.storeTag(soGoodTag);
-        secondPost.addTag(soGoodTag);
+        Tag Tag2 = new Tag("tag2");
+        tagStorage.storeTag(Tag2);
+        secondPost.addTag(Tag2);
         postStorage.storePost(secondPost);
 
-        Tag filling = new Tag("filling");
-        tagStorage.storeTag(filling);
-        thirdPost.addTag(filling);
+        Tag Tag3 = new Tag("tag3");
+        tagStorage.storeTag(Tag3);
+        thirdPost.addTag(Tag3);
         postStorage.storePost(thirdPost);
 
-        Tag meh = new Tag("meh");
-        tagStorage.storeTag(meh);
-        fourthPost.addTag(meh);
+        Tag Tag4 = new Tag("tag4");
+        tagStorage.storeTag(Tag4);
+        fourthPost.addTag(Tag4);
         postStorage.storePost(fourthPost);
 
-        Tag confused = new Tag("confused");
-        tagStorage.storeTag(confused);
-        fifthPost.addTag(confused);
+        Tag Tag5 = new Tag("tag5");
+        tagStorage.storeTag(Tag5);
+        fifthPost.addTag(Tag5);
         postStorage.storePost(fifthPost);
 
-        Tag fun = new Tag("fun");
-        tagStorage.storeTag(fun);
-        sixthPost.addTag(fun);
+        Tag Tag6 = new Tag("tag6");
+        tagStorage.storeTag(Tag6);
+        sixthPost.addTag(Tag6);
         postStorage.storePost(sixthPost);
 
-        Tag notForDog = new Tag("NotForDogs");
-        tagStorage.storeTag(notForDog);
-        seventhPost.addTag(notForDog);
+        Tag Tag7 = new Tag("tag7");
+        tagStorage.storeTag(Tag7);
+        seventhPost.addTag(Tag7);
         postStorage.storePost(seventhPost);
 
 
