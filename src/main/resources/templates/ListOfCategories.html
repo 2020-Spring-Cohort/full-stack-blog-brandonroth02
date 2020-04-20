@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="./css/styles.css" th:href="@{/css/style.css}" type="text/css"/>
+    <meta charset="UTF-8">
+    <title th:text="${categories.categoriesName}">Categories</title>
+</head>
+<header>
+    <div id="topbar">
+        <div class="logo">
+            My Blog
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="Tags.html">Tags</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+
+<h2 th:text="${categories.categoriesName}">Category Name</h2>
+
+<section class="categorylinks">
+    <li><a href="/categories/BlogTopic1">Blog Topic 1</a></li>
+    <li><a href="/categories/BlogTopic2">Blog Topic 2</a></li>
+    <li><a href="/categories/BlogTopic3">Blog Topic 3</a></li>
+    <li><a href="/categories/BlogTopic4">Blog Topic 4</a></li>
+    <li><a href="/categories/BlogTopic5">Blog Topic 5</a></li>
+</section>
+
+<section class="content">
+
+    <div class="blog__categories">
+
+        <p th:each="category:${categories}"><a th:href="@{'/categories/' + ${category.categoryName}}"
+                                               th:text="${category.categoryName}">Category</a>
+            <span th:text="$category.categoryDescription}"></span>
+        </p>
+    </div>
+</section>
+
+<footer>
+    <div id="footer">
+        Footer
+    </div>
+</footer>
+
+
+</body>
+</html>

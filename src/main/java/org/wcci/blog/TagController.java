@@ -10,15 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TagController {
 
     private TagStorage tagStorage;
-    private CategoryStorage categoryStorage;
-    private PostStorage postStorage;
-
 
 
     public TagController(TagStorage tagStorage, PostStorage postStorage, CategoryStorage categoryStorage){
         this.tagStorage = tagStorage;
-        this.postStorage = postStorage;
-        this.categoryStorage = categoryStorage;
     }
 
     @RequestMapping("/tags")

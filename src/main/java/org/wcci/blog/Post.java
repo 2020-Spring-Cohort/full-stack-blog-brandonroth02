@@ -59,6 +59,10 @@ public class Post {
     }
 
     public void addTag(Tag tagToAdd) {
+        if (tags == null) {
+            tags = new HashSet<>();
+
+        }
         tags.add(tagToAdd);
     }
 

@@ -42,8 +42,7 @@ public class Populator implements CommandLineRunner {
         Post firstPost = new Post();
         postStorage.storePost(firstPost);
 
-        Post secondPost;
-        secondPost = new Post();
+        Post secondPost = new Post();
         postStorage.storePost(secondPost);
 
         Post thirdPost = new Post();
